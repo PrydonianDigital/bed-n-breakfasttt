@@ -1,0 +1,184 @@
+/*
+Theme Name: Bed n Breakfasttt
+Theme URI: https://bednbreakfasttt.co.uk
+Description:
+Version:
+Author: Mark Duwe
+Author URI: http://prydonian.digital
+Tags:
+License: Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License
+License URI: http://creativecommons.org/licenses/by-nc-nd/3.0/deed.en_US
+Text Domain:
+*/
+body, button, input, select, textarea {
+	font-family: 'Montserrat', sans-serif;
+}
+.is-light, .menu-list a:hover {
+	background: whitesmoke;
+}
+header.card-header.is-light a {
+	color: #111;
+}
+footer.card-footer.is-light a {
+	color: #111;
+}
+.tax-product_cat .menu-item-home a, .tax-product_cat .menu-item-home a:hover {
+	background-color: #363636 !important;
+	border-color: #363636;
+	color: #b2b0bf !important;
+}
+.has-text-left p {
+	margin-bottom: 1em;
+}
+form p {
+	margin: 0 !important;
+}
+.alignleft {
+	float: left;
+	margin: 0 1em 1em 0;
+}
+
+table.variations {
+	margin-bottom: 2em !important;
+}
+tr:hover, td:hover {
+	background: none !important;
+}
+.woocommerce-LoopProduct-link {
+	display: block;
+}
+.single_variation {
+	padding: 1em 0;
+}
+.media.product-addon {
+	padding: 0.5em 0;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+}
+.addon-title {
+	cursor: pointer;
+}
+.addon-title small .fa {
+	font-size: 16px;
+	line-height: 24px;
+}
+.widget {
+	margin-bottom: 1em;
+}
+a.remove {
+	float: left !important;
+	background: red !important;
+	color: #fff !important;
+	width: 16px !important;
+	height: 16px !important;
+	display: block !important;
+	border-radius: 16px !important;
+	line-height: 14px !important;
+	text-align: center !important;
+	margin-right: 0.25em !important;
+}
+a.remove:hover {
+	color:#fff!important;
+	background:red;
+}
+
+.product_list_widget a {
+	width: 100%;
+	max-width: 100%;
+}
+.mini_cart_item a, .product_list_widget a {
+	float: left;
+	display: block;
+	overflow: hidden;
+	word-wrap: break-word;
+	max-width: 50%;
+	line-height: 1.1;
+	font-size: 1rem;
+}
+.mini_cart_item a img, .product_list_widget a img {
+	display: block;
+	margin: 0 0.5em;
+	max-width: 60px;
+	float: left;
+}
+.mini_cart_item span.quantity {
+	float: right;
+}
+.mini_cart_item, .product_list_widget li {
+	clear: both;
+	overflow: hidden;
+	padding: 0 0 1em 0;
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 1em;
+}
+label {
+	margin: 1em 0 0.5em 0;
+}
+label.panel-block {
+	margin: 0;
+}
+.panel-block input {
+	margin-right: 1em !important;
+}
+.fieldset, fieldset {
+	border: none;
+}
+.woocommerce-MyAccount-navigation ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.woocommerce-MyAccount-navigation ul li {
+	padding: 0.25em;
+	border-bottom: 1px solid gray;
+}
+.woocommerce-MyAccount-navigation ul li a {
+	color: #333;
+}
+.woocommerce-MyAccount-navigation ul li a:before {
+	display: inline-block;
+	font: normal normal normal 1em/1 'FontAwesome';
+	font-size: 1.2rem;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	content: "\f0f6";
+	line-height: 1.618;
+	margin-left: .53em;
+	width: 1.387em;
+	text-align: right;
+	float: right;
+	opacity: .35;
+	line-height: 1 !important;
+}
+.woocommerce-MyAccount-navigation ul li a:hover:before, .woocommerce-MyAccount-navigation ul li.is-active a:before {
+	opacity:1;
+}
+
+.woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--dashboard a:before {
+	content:"\f0e4";
+}
+
+.woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--orders a:before {
+	content:"\f290";
+}
+
+.woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--downloads {
+	display: none !important;
+}
+
+.woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--edit-address a:before {
+	content:"\f2bc";
+}
+
+.woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--payment-methods a:before {
+	content:"\f09d";
+}
+
+.woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--edit-account a:before {
+	content:"\f007";
+}
+
+.woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--customer-logout a:before {
+	content:"\f08b";
+}
