@@ -37,7 +37,14 @@ form p {
 	float: left;
 	margin: 0 1em 1em 0;
 }
-
+.column img {
+	width: 100%;
+	height: auto;
+}
+.hero img, .widget img, label img, p.title img {
+	width: auto;
+	max-width: auto !important;
+}
 table.variations {
 	margin-bottom: 2em !important;
 }
@@ -117,6 +124,9 @@ label {
 label.panel-block {
 	margin: 0;
 }
+.field label {
+	margin: 0 0.5rem 0 0;
+}
 .panel-block input {
 	margin-right: 1em !important;
 }
@@ -134,6 +144,7 @@ label.panel-block {
 }
 .woocommerce-MyAccount-navigation ul li a {
 	color: #333;
+	display: block;
 }
 .woocommerce-MyAccount-navigation ul li a:before {
 	display: inline-block;
@@ -181,4 +192,40 @@ label.panel-block {
 
 .woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--customer-logout a:before {
 	content:"\f08b";
+}
+.blogroll li {
+	margin-bottom: 0.5em;
+}
+.select select {
+	max-width: 100% !important;
+}
+.table, table {
+	max-width: 100% !important;
+}
+.product_meta {
+	display: none;
+}
+.product_meta .sku_wrapper, .product_meta .posted_in {
+	display: block;
+	margin: 0.25em 0;
+}
+@media screen and (max-width: 800px) {
+	table.variations td {
+		display: block !important;
+	}
+	td,th {
+		font-size: 0.7rem;
+	}
+}
+p.title img {
+	display: none;
+}
+p.title a {
+	font-size: 1rem;
+}
+#wc-od {
+	margin-top: 0.5rem;
+}
+.cookies .hero-body {
+	padding: 0 !important;
 }

@@ -6,6 +6,7 @@
 
 	// Register Theme Features
 	function bnb_theme()  {
+		show_admin_bar(false);
 		// Add theme support for Featured Images
 		add_theme_support( 'post-thumbnails' );
 		// Add theme support for document Title tag
@@ -76,6 +77,16 @@
 		);
 		register_sidebar( $args );
 		$args = array(
+			'id'			=> 'fleft',
+			'class'		 => 'left',
+			'name'		  => __( 'Footer Left Sidebar', 'ch' ),
+			'before_widget' => '<div class="widget">',
+			'after_widget' => '</div>',
+			'before_title' => '<p class="title">',
+			'after_title' => '</p>',
+		);
+		register_sidebar( $args );
+		$args = array(
 			'id'			=> 'fright',
 			'class'		 => 'right',
 			'name'		  => __( 'Footer Right Sidebar', 'ch' ),
@@ -86,9 +97,9 @@
 		);
 		register_sidebar( $args );
 		$args = array(
-			'id'			=> 'fleft',
+			'id'			=> 'cookies',
 			'class'		 => 'left',
-			'name'		  => __( 'Footer Left Sidebar', 'ch' ),
+			'name'		  => __( 'Cookies Sidebar', 'ch' ),
 			'before_widget' => '<div class="widget">',
 			'after_widget' => '</div>',
 			'before_title' => '<p class="title">',
@@ -110,3 +121,47 @@
 		$fragments['a.cart-customlocation'] = ob_get_clean();
 		return $fragments;
 	}
+
+add_filter('woocommerce_form_field_args',  'wc_form_field_args',10,3);
+  function wc_form_field_args($args, $key, $value) {
+  $args['input_class'] = array( 'input' );
+  return $args;
+}
+add_filter( 'woocommerce_product_tabs', 'woo_remove_product_tabs', 98 );
+
+function woo_remove_product_tabs( $tabs ) {
+    unset( $tabs['additional_information'] );  	// Remove the additional information tab
+    return $tabs;
+}
+
+function register_accepted_order_status() {
+    register_post_status( 'wc-accepted', array(
+        'label'                     => 'Accepted',
+        'public'                    => true,
+        'exclude_from_search'       => false,
+        'show_in_admin_all_list'    => true,
+        'show_in_admin_status_list' => true,
+        'label_count'               => _n_noop( 'Accepted <span class="count">(%s)</span>', 'Accepted <span class="count">(%s)</span>' )
+    ) );
+}
+add_action( 'init', 'register_accepted_order_status' );
+
+// Add to list of WC Order statuses
+function add_accepted_to_order_statuses( $order_statuses ) {
+
+    $new_order_statuses = array();
+
+    // add new order status after processing
+    foreach ( $order_statuses as $key => $status ) {
+
+        $new_order_statuses[ $key ] = $status;
+
+        if ( 'wc-processing' === $key ) {
+            $new_order_statuses['wc-accepted'] = 'Accepted';
+        }
+    }
+
+    return $new_order_statuses;
+}
+add_filter( 'wc_order_statuses', 'add_accepted_to_order_statuses' );
+

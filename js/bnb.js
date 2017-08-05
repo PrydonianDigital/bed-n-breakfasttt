@@ -3,6 +3,8 @@ jQuery(document).ready(function ($) {
 	var $toggle = $('.nav-toggle');
 	var $menu = $('.nav-menu');
 
+	$('#giftcard_code').addClass('input');
+
 	$toggle.click(function() {
 		$(this).toggleClass('is-active');
 		$menu.toggleClass('is-active');
@@ -56,16 +58,6 @@ jQuery(document).ready(function ($) {
 	});
 
 	$('.woocommerce-account').find('.woocommerce').addClass('columns');
-
-	var $ess = $.now();
-	if(Cookies.get('BnB')){
-		$('#cookieInfo').hide();
-		console.log('You already have some The BednBreakfasttt cookies set. You can change your broswer preferences to stop them if you want.');
-	} else {
-		Cookies.set('BnB', $ess, {expires: 365, path: '/'});
-		$('body').append('<div id="cookieInfo">This site uses cookies in order to function properly. By continuing to browse, you agree that we can save them on your device.</div>');
-		$('#cookieInfo').show().delay(10000).animate({bottom: '-500px'}, 5000).fadeOut(1500);
-	}
 
 	$('div.addon').hide();
 

@@ -10,9 +10,9 @@
 			echo 'Oops! There was a problem with your submission. Please complete the form and try again.';
 			exit;
 		}
-		$recipient = "mark@prydonian.digital";
+		$recipient = "enquiries@bednbreakfasttt.co.uk";
 		$subject = "[BedNBreakfasttt] new message from $name";
-		$email_content = $message . '<p><img src="http://bnb.co.uk.gridhosted.co.uk/wp-content/themes/bed-n-breakfasttt/img/bnb.png"></p>';
+		$email_content = $message . '<p><img src="https://bednbreakfasttt.co.uk/wp-content/themes/bed-n-breakfasttt/img/logo.png" width="100"></p>';
 
 		$headers = "From: " . $name . "<" . $email . ">" . "\r\n";
 		$headers .= "Reply-To: ". $email . "\r\n";

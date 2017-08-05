@@ -4,21 +4,18 @@
 	<div class="container">
 		<div class="columns">
 			<div class="column has-text-left content">
-				<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-					<?php the_content(); ?>
-
-					<form class="col s12" id="ajax-contact" method="post" action="<?php bloginfo('template_directory'); ?>/mailer.php">
+					<form id="ajax-contact" method="post" action="<?php bloginfo('template_directory'); ?>/mailer.php">
 						<div class="field">
 							<p class="control">
 							<label class="label" for="name" data-error="Please enter your name" data-success="">Name</label>
-							<input id="name" name="name" type="text" class="input-text validate" placeholder="Your Name">
+							<input id="name" name="name" type="text" class="input input-text validate" placeholder="Your Name">
 							</p>
 						</div>
 						<div class="field">
 							<p class="control">
 							<label class="label" for="email" data-error="Please enter your email" data-success="">Email</label>
-							<input id="email" name="email" type="email" class="input-text validate" placeholder="Your Email">
+							<input id="email" name="email" type="email" class="input input-text validate" placeholder="Your Email">
 							</p>
 						</div>
 						<div class="field">
@@ -37,10 +34,6 @@
 						</div>
 						<p id="form-messages" class="help"></p>
 					</form>
-
-				<?php endwhile; ?>
-
-				<?php endif; ?>
 			</div>
 			<div class="column is-one-third">
 				<div class="sidebar">

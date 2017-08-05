@@ -13,9 +13,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 global $product;
 ?>
-<div class="woocommerce-variation-add-to-cart variations_button">
-	<div class="field">
-		<div class="control">
+<div class="woocommerce-variation-add-to-cart variations_button columns">
+	<div class="field column is-2">
+		<p class="control">
 
 Quantity:
 			<?php
@@ -35,10 +35,15 @@ Quantity:
 				 */
 				do_action( 'woocommerce_after_add_to_cart_quantity' );
 			?>
-		</div>
+		</p>
 	</div>
-	<button type="submit" class="single_add_to_cart_button button alt is-success"><?php echo esc_html( $product->single_add_to_cart_text() ); ?></button>
-	<input type="hidden" name="add-to-cart" value="<?php echo absint( $product->get_id() ); ?>" />
-	<input type="hidden" name="product_id" value="<?php echo absint( $product->get_id() ); ?>" />
-	<input type="hidden" name="variation_id" class="variation_id" value="0" />
+	<div class="field column has-text-right">
+		<p class="control">
+			<p>&nbsp;</p>
+			<button type="submit" class="single_add_to_cart_button button alt is-success"><?php echo esc_html( $product->single_add_to_cart_text() ); ?></button>
+			<input type="hidden" name="add-to-cart" value="<?php echo absint( $product->get_id() ); ?>" />
+			<input type="hidden" name="product_id" value="<?php echo absint( $product->get_id() ); ?>" />
+			<input type="hidden" name="variation_id" class="variation_id" value="0" />
+		</p>
+	</div>
 </div>

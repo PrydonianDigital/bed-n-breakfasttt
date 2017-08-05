@@ -32,19 +32,22 @@ if ( 'no' === get_option( 'woocommerce_enable_shipping_calc' ) || ! WC()->cart->
 
 	<p><a href="#" class="shipping-calculator-button"><?php _e( 'Calculate shipping', 'woocommerce' ); ?></a></p>
 
-	<section class="shipping-calculator-form" style="display:none;">
-
-		<p class="form-row form-row-wide" id="calc_shipping_country_field">
-			<select name="calc_shipping_country" id="calc_shipping_country" class="country_to_state" rel="calc_shipping_state">
+	<section class="shipping-calculator-form field" style="display:none;">
+		<div class="field">
+		<p class="control form-row form-row-wide" id="calc_shipping_country_field">
+			<span class="select">
+			<select name="calc_shipping_country" class="select" id="calc_shipping_country" class="country_to_state" rel="calc_shipping_state">
 				<option value=""><?php _e( 'Select a country&hellip;', 'woocommerce' ); ?></option>
 				<?php
 					foreach ( WC()->countries->get_shipping_countries() as $key => $value )
 						echo '<option value="' . esc_attr( $key ) . '"' . selected( WC()->customer->get_shipping_country(), esc_attr( $key ), false ) . '>' . esc_html( $value ) . '</option>';
 				?>
 			</select>
+			</span>
 		</p>
-
-		<p class="form-row form-row-wide" id="calc_shipping_state_field">
+		</div>
+		<div class="field">
+		<p class="control form-row form-row-wide" id="calc_shipping_state_field">
 			<?php
 				$current_cc = WC()->customer->get_shipping_country();
 				$current_r  = WC()->customer->get_shipping_state();
@@ -58,8 +61,8 @@ if ( 'no' === get_option( 'woocommerce_enable_shipping_calc' ) || ! WC()->cart->
 				// Dropdown Input
 				} elseif ( is_array( $states ) ) {
 
-					?><span>
-						<select name="calc_shipping_state" id="calc_shipping_state" placeholder="<?php esc_attr_e( 'State / County', 'woocommerce' ); ?>">
+					?><span class="select">
+						<select name="calc_shipping_state" class="select" id="calc_shipping_state" placeholder="<?php esc_attr_e( 'State / County', 'woocommerce' ); ?>">
 							<option value=""><?php esc_html_e( 'Select a state&hellip;', 'woocommerce' ); ?></option>
 							<?php
 								foreach ( $states as $ckey => $cvalue )
@@ -71,30 +74,31 @@ if ( 'no' === get_option( 'woocommerce_enable_shipping_calc' ) || ! WC()->cart->
 				// Standard Input
 				} else {
 
-					?><input type="text" class="input-text" value="<?php echo esc_attr( $current_r ); ?>" placeholder="<?php esc_attr_e( 'State / County', 'woocommerce' ); ?>" name="calc_shipping_state" id="calc_shipping_state" /><?php
+					?><input type="text" class="input" value="<?php echo esc_attr( $current_r ); ?>" placeholder="<?php esc_attr_e( 'Borough', 'woocommerce' ); ?>" name="calc_shipping_state" id="calc_shipping_state" /><?php
 
 				}
 			?>
 		</p>
+		</div>
 
 		<?php if ( apply_filters( 'woocommerce_shipping_calculator_enable_city', false ) ) : ?>
-
+		<div class="field">
 			<p class="form-row form-row-wide" id="calc_shipping_city_field">
-				<input type="text" class="input-text" value="<?php echo esc_attr( WC()->customer->get_shipping_city() ); ?>" placeholder="<?php esc_attr_e( 'City', 'woocommerce' ); ?>" name="calc_shipping_city" id="calc_shipping_city" />
+				<input type="text" class="input" value="<?php echo esc_attr( WC()->customer->get_shipping_city() ); ?>" placeholder="<?php esc_attr_e( 'City', 'woocommerce' ); ?>" name="calc_shipping_city" id="calc_shipping_city" />
 			</p>
-
+		</div>
 		<?php endif; ?>
 
 		<?php if ( apply_filters( 'woocommerce_shipping_calculator_enable_postcode', true ) ) : ?>
-
-			<p class="form-row form-row-wide" id="calc_shipping_postcode_field">
-				<input type="text" class="input-text" value="<?php echo esc_attr( WC()->customer->get_shipping_postcode() ); ?>" placeholder="<?php esc_attr_e( 'Postcode / ZIP', 'woocommerce' ); ?>" name="calc_shipping_postcode" id="calc_shipping_postcode" />
+		<div class="field">
+			<p class="control form-row form-row-wide" id="calc_shipping_postcode_field">
+				<input type="text" class="input" value="<?php echo esc_attr( WC()->customer->get_shipping_postcode() ); ?>" placeholder="<?php esc_attr_e( 'Postcode', 'woocommerce' ); ?>" name="calc_shipping_postcode" id="calc_shipping_postcode" />
 			</p>
-
+		</div>
 		<?php endif; ?>
-
-		<p><button type="submit" name="calc_shipping" value="1" class="button"><?php _e( 'Update totals', 'woocommerce' ); ?></button></p>
-
+		<div class="field">
+		<p class="control"><button type="submit" name="calc_shipping" value="1" class="button"><?php _e( 'Update totals', 'woocommerce' ); ?></button></p>
+		</div>
 		<?php wp_nonce_field( 'woocommerce-cart' ); ?>
 	</section>
 </form>

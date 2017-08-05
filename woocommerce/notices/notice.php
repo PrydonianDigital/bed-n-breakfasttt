@@ -27,7 +27,7 @@ if ( ! $messages ) {
 ?>
 
 <?php foreach ( $messages as $message ) : ?>
-		<article class="message is-primary">
+		<article class="message is-info">
 			<div class="message-body">
 				<?php echo wp_kses_post( $message ); ?>
 			</div>

@@ -31,14 +31,22 @@ if ( empty( WC()->cart->applied_coupons ) ) {
 ?>
 
 <form class="checkout_coupon" method="post" style="display:none">
+	<article class="message is-info">
+		<div class="message-header">
+			<p>Enter Coupon Code</p>
+		</div>
+		<div class="message-body">
+			<div class="field has-addons">
+				<p class="control">
+					<input type="text" name="coupon_code" class="input text" placeholder="<?php esc_attr_e( 'Coupon code', 'woocommerce' ); ?>" id="coupon_code" value="" />
+				</p>
 
-	<p class="form-row form-row-first">
-		<input type="text" name="coupon_code" class="input-text" placeholder="<?php esc_attr_e( 'Coupon code', 'woocommerce' ); ?>" id="coupon_code" value="" />
-	</p>
-
-	<p class="form-row form-row-last">
-		<input type="submit" class="button" name="apply_coupon" value="<?php esc_attr_e( 'Apply coupon', 'woocommerce' ); ?>" />
-	</p>
+				<p class="control">
+					<input type="submit" class="button" name="apply_coupon" value="<?php esc_attr_e( 'Apply coupon', 'woocommerce' ); ?>" />
+				</p>
+			</div>
+		</div>
+	</article>
 
 	<div class="clear"></div>
 </form>
